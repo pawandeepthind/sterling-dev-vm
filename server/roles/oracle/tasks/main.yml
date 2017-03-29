@@ -11,3 +11,4 @@
   when: not is_oracle_installed
   
 - include: postinstall.yml
+  when: not is_oracle_installed
