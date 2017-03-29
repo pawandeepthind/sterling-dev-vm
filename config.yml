@@ -1,0 +1,59 @@
+---
+mgmt_server: 
+  name: ctl
+  box: bento/centos-7.2
+  memory: 256
+  ip: 10.0.20.10
+  synced_folders: 
+    - { guest: "./server", host: "/home/vagrant/server" }
+groups:
+  - group_name: database_group
+    servers:
+      - name: database
+        box: bento/centos-7.2
+        memory: 512
+        ip: 10.0.20.20
+        synced_folders: 
+          - { guest: "./server", host: "/home/vagrant/server" }
+        forwarded_ports:
+          - { guest: 1521, host: 1521 }
+  - group_name: appserver_group
+    servers:
+      - name: sterlingdev
+        box: bento/centos-7.2
+        memory: 4096
+        ip: 10.0.20.30
+        synced_folders: 
+          - { guest: "./server", host: "/home/vagrant/server" }
+        forwarded_ports:
+          - { guest: 8080, host: 8080 }
+          - { guest: 8787, host: 8787 }
+          - { guest: 8443, host: 8443 }
+          - { guest: 7001, host: 7001 }
+          - { guest: 8453, host: 8453 }
+          - { guest: 61616, host: 8616 }
+          - { guest: 8161, host: 8161 }
+  - group_name: ci_group
+    servers:
+      - name: cidev
+        box: bento/centos-7.2
+        memory: 512
+        ip: 10.0.20.40
+        synced_folders: 
+          - { guest: "./server", host: "/home/vagrant/server" }
+        forwarded_ports:
+          - { guest: 8084, host: 8084 }
+          - { guest: 8085, host: 8085 }
+  - group_name: mule_group
+    servers:
+      - name: muledev
+        box: bento/centos-7.2
+        memory: 2048
+        ip: 10.0.20.50
+        synced_folders: 
+          - { guest: "./server", host: "/home/vagrant/server" }
+        forwarded_ports:
+          - { guest: 8585, host: 8585 }
+          - { guest: 7777, host: 7777 }
+          - { guest: 7779, host: 7779 }
+

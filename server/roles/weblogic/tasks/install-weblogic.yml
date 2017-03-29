@@ -1,0 +1,8 @@
+---
+- set_fact:
+    cmd: "java -jar {{ local_software_repo }}/{{ name }}.jar -mode=silent -silent_xml=/tmp/silent.xml"
+  
+- name: Install weblogic
+  become: yes
+  become_user: vagrant
+  shell: "{{ cmd }}"

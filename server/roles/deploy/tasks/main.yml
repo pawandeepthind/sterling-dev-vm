@@ -1,0 +1,14 @@
+---
+- name: Trigger build (weblogic)
+  command: "{{ sterling_home_path }}/bin/buildear.sh -Dearfile=smcfs.ear -Dwarfiles=smcfs,sbc,wscdev,isccsdev -Dappserver=weblogic -Dnowebservice=true -Ddevmode=true -Duidevmode=true -Dnodocear=true create-ear"
+  become_user: vagrant
+  register: result
+  failed_when: "'BUILD SUCCESSFUL' not in result.stdout"
+
+- name: Copy smcfs.ear file to app server from local share
+  command: "cp {{ sterling_home_path }}/external_deployments/smcfs.ear {{ weblogic_sterling_domain_path }}/autodeploy/smcfs.ear"
+
+
+
+
+ 

@@ -1,0 +1,7 @@
+name: apache-activemq-5.13.2
+activemq_home_path: /opt/activemq
+download_name: "{{ name }}-bin.tar.gz"
+download_link: "http://host:port/{{ download_name }}"
+is_activemq_installed: false
+user: activemq
+group: activemq

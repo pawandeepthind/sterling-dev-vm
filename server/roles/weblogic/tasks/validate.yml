@@ -1,0 +1,9 @@
+---
+- name: Validate | Weblogic Installed
+  stat: path="{{ BEAHOME }}/registry.xml"
+  register: weblogic_dir_stat
+  changed_when: weblogic_dir_stat.stat.exists == False
+    
+- set_fact: 
+    is_web_logic_installed: true
+  when: weblogic_dir_stat.stat.exists == True

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<agent-input>
+  <variables>
+    <variable name='sharedLocation' value='/opt/IBM/OMS/SDPShared'/>
+  </variables>
+  <server>
+    <repository location='/home/vagrant/server/roles/files/sterling94/OM/foundation'/>
+    <repository location='/home/vagrant/server/roles/files/sterling94/CC'/>
+    <repository location='/home/vagrant/server/roles/files/sterling94/STORE'/>
+  </server>
+  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling94'>
+    <data key='eclipseLocation' value='/opt/IBM/OMS/Sterling94'/>
+    <data key='user.import.profile' value='false'/>
+    <data key='cic.selector.os' value='linux'/>
+    <data key='cic.selector.arch' value='x86'/>
+    <data key='cic.selector.ws' value='gtk'/>
+    <data key='cic.selector.nl' value='en'/>
+    <data key='user.sbx.JVM_LOC' value='/usr/java/default'/>
+    <data key='user.COPYJVM' value='true'/>
+    <data key='user.featurelist' value='com.ibm.is.commerce.ssfs.main'/>
+    <data key='user.featurelist,com.ibm.is.commerce.ssfs' value='com.ibm.is.commerce.ssfs.main'/>
+    <data key='user.sbx.DB_VENDOR' value='Oracle'/>
+    <data key='user.sbx.DB_USER' value='STERLING94'/>
+    <data key='user.sbx.DB_PASS' value='IMCRYPTED:MtvgKSoTCRj5/VegOn6DyQ=='/>
+    <data key='user.sbx.DB_DATA' value='XE'/>
+    <data key='user.sbx.DB_HOST' value='database'/>
+    <data key='user.sbx.DB_PORT' value='1521'/>
+    <data key='user.sbx.DB_SCHEMA_OWNER' value='STERLING94'/>
+    <data key='user.sbx.DB_DRIVERS' value='/home/vagrant/server/roles/files/ojdbc6.jar'/>
+    <data key='user.sbx.ADDITIONAL_ANT_JAVA_TASK_ARGS' value='-XX:MaxPermSize=512m'/>
+    <data key='user.sbx.ADDITIONAL_ANT_COMPILER_TASK_ARGS' value='-J-Xms512m -J-Xmx2048m'/>
+    <data key='user.sbx.INSTALL_JAR' value='/opt/IBM/OMS/SDPShared/files/SMCFS_9.4.0.jar'/>
+    <data key='user.sbx.ACCEPT_LICENSE' value='YES'/>
+    <data key='user.sbx.JAVADOC_PRODUCT_LABEL' value='IBM Sterling Selling And Fulfillment Foundation 9.4'/>
+    <data key='user.sbx.STERLING_FOUNDATION_PRODUCT_LABEL' value='smcfs'/>
+    <data key='user.sbx.STERLING_FOUNDATION_PRODUCT_VERSION' value='9.4'/>
+    <data key='user.sbx.COPY_FCXML_TO_REPOSITORY' value='true'/>
+    <data key='user.sbx.multischema.version' value='9.4'/>
+    <data key='user.sbx.DB_CLEAN' value='false'/>
+    <data key='user.sbx.PRE_INSTALL_LOG_DIR' value='PreInstallSI.log'/>
+    <data key='user.sbx.OVERRIDE_LOAD_DEFAULTS_PK_GEN' value='true'/>
+    <data key='user.sbx.IC_PORT' value='9999'/>
+    <data key='user.sbx.OMS_INSTALLED' value='true'/>
+    <data key='user.sbx.LOAD_FACTORY_SETUP' value='true'/>
+    <data key='user.sbx.cluster' value=''/>
+    <data key='user.sbx.REINIT_DB' value='true'/>
+    <data key='user.sbx.multischema.enabled' value='false'/>
+  </profile>
+  <install modify='false'>
+    <!-- IBM Sterling Store 9.4.0 -->
+    <offering profile='IBM Sterling Order Management Enterprise Edition' id='com.ibm.is.commerce.wsc' version='9.4.0.20150211_1747' features='com.ibm.is.commerce.wsc.wsc' installFixes='none'/>
+  </install>
+  <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
+  <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
+  <preference name='com.ibm.cic.common.core.preferences.readTimeout' value='45'/>
+  <preference name='com.ibm.cic.common.core.preferences.downloadAutoRetryCount' value='0'/>
+  <preference name='offering.service.repositories.areUsed' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.ssl.nonsecureMode' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication' value='false'/>
+  <preference name='http.ntlm.auth.kind' value='NTLM'/>
+  <preference name='http.ntlm.auth.enableIntegrated.win32' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.keepFetchedFiles' value='false'/>
+  <preference name='PassportAdvantageIsEnabled' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.searchForUpdates' value='false'/>
+  <preference name='com.ibm.cic.agent.ui.displayInternalVersion' value='false'/>
+  <preference name='com.ibm.cic.common.sharedUI.showErrorLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showWarningLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showNoteLog' value='true'/>
+</agent-input>

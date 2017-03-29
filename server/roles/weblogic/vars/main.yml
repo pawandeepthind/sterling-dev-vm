@@ -1,0 +1,10 @@
+BEAHOME: /home/vagrant/Oracle/Middleware
+WLS_INSTALL_DIR: "{{ BEAHOME }}/wlserver_12.1"
+JAVA_HOME: /usr/java/jdk1.7.0_79
+name: wls1211_generic
+download_name: "{{ name }}.jar"
+download_link: "http://host:port/{{ download_name }}"
+is_web_logic_installed: false
+weblogic_domain_path: /home/vagrant/Oracle/user_projects/sterling{{sterling_version}}_domain
+weblogic_domain_user: weblogic
+weblogic_domain_password: weblogic123

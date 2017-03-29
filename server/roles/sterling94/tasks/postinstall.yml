@@ -1,0 +1,24 @@
+---      
+- name: Run setupfiles.sh from sterling bin directory
+  become_user: vagrant
+  command: "{{ sterling_home }}/bin/setupfiles.sh"
+  args:
+    chdir: "{{ sterling_home}}/bin/"
+    
+#set /tmp permissions
+- name: Change permission of tmp directory
+  become: yes
+  file: 
+    path="/tmp"
+    recurse=yes
+    mode=777
+    state=directory
+
+#set sterling home log permissions
+- name: Change permission of logs directory
+  become: yes
+  file: 
+    path="{{ sterling_home }}/logs"
+    recurse=yes
+    mode=777
+    state=directory

@@ -1,0 +1,39 @@
+- name: "Add {{ group }} group"
+  group: 
+    name="{{ group }}" 
+    state=present
+    
+- name: "Add {{ user }} user"
+  user: 
+    name={{ user }} 
+    comment="{{ user }} user" 
+    system=yes
+    state=present
+  
+- name: "Change ownership to {{ group }} {{ user }}"
+  file: 
+    path="{{ activemq_home_path}}" 
+    owner={{ group }}
+    group={{ user }}
+    recurse=yes
+    state=directory
+ 
+- name: Create environment parameters
+  template: 
+    src=activemq.j2 
+    dest=/etc/init.d/activemq 
+    mode=0755
+  
+- name: Create active mq start/stop scripts
+  template: 
+    src=activemq.sh.j2 
+    dest=/etc/profile.d/activemq.sh 
+    mode=0755
+
+- name: Start the service
+  become: yes
+  command: service activemq start
+
+- name: Start the service
+  service: name=activemq enabled=yes state=started
+  

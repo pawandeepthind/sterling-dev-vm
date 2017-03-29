@@ -1,0 +1,9 @@
+---
+- name: Validate | Oracle Installed
+  stat: path="/u01/app/oracle/product/11.2.0/xe"
+  register: oracle_dir_stat
+  changed_when: oracle_dir_stat.stat.exists == False
+    
+- set_fact:
+    is_oracle_installed: true
+  when: oracle_dir_stat.stat.exists == True

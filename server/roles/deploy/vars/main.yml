@@ -1,0 +1,2 @@
+sterling_home_path: "/opt/IBM/OMS/{{sterling_version}}"
+weblogic_sterling_domain_path: "/home/vagrant/Oracle/user_projects/sterling{{sterling_version}}_domain"

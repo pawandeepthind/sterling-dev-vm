@@ -1,0 +1,19 @@
+---
+- include: validate.yml
+  when: not is_web_logic_installed
+  
+- debug: msg="WebLogic Installed:- {{ is_web_logic_installed }}"
+
+- include: prepare.yml
+  when: not is_web_logic_installed
+
+- include: install-weblogic.yml
+  when: not is_web_logic_installed
+  
+- include: install-domain.yml
+  when: not is_web_logic_installed
+  
+- include: postinstall.yml
+
+
+  

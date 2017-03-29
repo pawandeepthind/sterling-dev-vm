@@ -1,0 +1,8 @@
+##create domain
+- set_fact:
+    cmd: "{{ WLS_INSTALL_DIR }}/common/bin/unpack.sh -template={{ WLS_INSTALL_DIR }}/common/templates/domains/wls.jar -domain={{weblogic_domain_path}} -user_name={{weblogic_domain_user}} -password={{weblogic_domain_password}} -java_home={{ JAVA_HOME }} -server_start_mode=dev -log={{BEAHOME}}/sterling{{sterling_version}}_domain.log"
+    
+- name: Create Domain
+  become: yes
+  become_user: vagrant
+  shell: "{{ cmd }}"

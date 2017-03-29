@@ -1,0 +1,29 @@
+---  
+- include: ssh-addkey.yml
+
+- hosts: all
+  strategy: free
+  become: yes
+  gather_facts: yes
+  
+  roles:
+    - common
+
+- hosts: database_group
+  become: yes
+  
+  roles:
+    - oracle
+
+- hosts: appserver_group
+  become: yes
+  
+  roles:
+    - activemq
+    - weblogic
+    - sterling94
+
+
+
+
+

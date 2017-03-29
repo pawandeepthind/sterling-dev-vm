@@ -1,0 +1,14 @@
+---
+- name: "Untar the activemq tar in {{ activemq_home_path }} directory"
+  unarchive: 
+    src="{{ local_software_repo}}/{{ download_name }}" 
+    dest=/opt
+    copy=no
+
+- name: "Check file {{ activemq_home_path }}"
+  stat: path="{{ activemq_home_path }}"
+  register: activemq_stat
+  
+- name: "Move to {{ activemq_home_path}} "
+  shell: mv /opt/{{ name }} /opt/activemq
+  when: activemq_stat.stat.exists == False

@@ -1,0 +1,22 @@
+---
+- name: Copy the init script
+  become: yes
+  template: src=weblogic.j2 dest=/etc/rc.d/init.d/weblogic mode=0755
+  
+- name: Copy weblogic sysconfig in the /etc/sysconfig/weblogic directory
+  template: src=weblogic.sysconfig.j2 dest=/etc/sysconfig/weblogic mode=0755
+  
+- name: Copy setDomainEnv.sh in the domain directory
+  become: yes
+  become_user: vagrant
+  template: src=setDomainEnv.sh.j2 dest="{{ weblogic_domain_path }}/bin/setDomainEnv.sh" mode=0755
+
+# - name: Start the service
+#   become: yes
+#   command: service weblogic start
+#   ignore_errors: True
+
+- name: Enable weblogic to be started at boot
+  become: yes
+  service: name=weblogic enabled=yes state=stopped
+  ignore_errors: True

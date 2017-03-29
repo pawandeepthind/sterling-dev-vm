@@ -1,0 +1,18 @@
+---
+- include: validate.yml
+  when: not is_activemq_installed
+  
+- debug: msg="ActiveMQ Installed:- {{ is_activemq_installed }}"
+
+- include: prepare.yml
+  when: not is_activemq_installed
+
+- include: install.yml
+  become: yes
+  become_user: root
+  when: not is_activemq_installed
+  
+- include: postinstall.yml
+  become: yes
+  become_user: root
+

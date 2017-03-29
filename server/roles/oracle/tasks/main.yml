@@ -1,0 +1,13 @@
+---
+- include: validate.yml
+  when: not is_oracle_installed
+  
+- debug: msg="Oracle Installed:- {{ is_oracle_installed }}"
+
+- include: prepare.yml
+  when: not is_oracle_installed
+
+- include: install.yml
+  when: not is_oracle_installed
+  
+- include: postinstall.yml

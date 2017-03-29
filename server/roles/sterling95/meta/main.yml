@@ -1,0 +1,4 @@
+---
+#dependencie
+dependencies:
+- { role: java }

@@ -1,0 +1,11 @@
+---
+- include: validate.yml
+  when: not is_java_installed
+  
+- debug: msg="Java Installed:- {{ is_java_installed }}"
+
+- include: prepare.yml
+  when: not is_java_installed
+
+- include: install.yml
+  when: not is_java_installed

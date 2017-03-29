@@ -1,0 +1,15 @@
+---
+- name: Execute script to setup oracle processes and session
+  command: "/bin/sh {{ scripts_home_path }}/roles/oracle/files/execute_1.sh"
+  
+- name: Execute scripts to setup sterling {{sterling_version}} table space and create user
+  command: "/bin/sh {{ scripts_home_path }}/roles/oracle/files/execute_{{sterling_version}}.sh"
+  
+- name: Execute script to setup listener
+  command: "/bin/sh {{ scripts_home_path }}/roles/oracle/files/set_listener.sh"
+
+- name: Stop the service
+  service: name=oracle-xe state=stopped
+
+- name: Start the service
+  service: name=oracle-xe state=started

@@ -1,0 +1,9 @@
+- name: Install oracle
+  shell: /bin/rpm -ivh /tmp/Disk1/oracle-xe-11.2.0-1.0.x86_64.rpm creates=/u01
+  
+- name: Configure oracle
+  shell: /etc/init.d/oracle-xe configure responseFile=/home/vagrant/server/roles/oracle/files/xe.rsp
+  ignore_errors: True
+
+- name: Setup oracle environment
+  shell: /bin/echo 'source /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh' >> /home/vagrant/.bash_profile

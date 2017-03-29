@@ -1,0 +1,17 @@
+---
+- include: prepare.yml
+  when: not is_sterling_installed
+
+- include: install_install_manager.yml
+  when: not is_sterling_installed
+
+- include: install_ordermgmt.yml
+  when: not is_sterling_installed
+  
+- include: install_callcenter.yml
+  when: not is_sterling_installed
+  
+- include: install_store.yml
+  when: not is_sterling_installed
+  
+- include: postinstall.yml

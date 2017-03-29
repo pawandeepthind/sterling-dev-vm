@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<agent-input>
+  <variables>
+    <variable name='sharedLocation' value='/opt/IBM/OMS/SDPShared'/>
+  </variables>
+  <server>
+    <repository location='/home/vagrant/server/roles/files/sterling94/OM/foundation'/>
+  </server>
+  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling94'>
+    <data key='eclipseLocation' value='/opt/IBM/OMS/Sterling94'/>
+    <data key='user.import.profile' value='false'/>
+    <data key='cic.selector.os' value='linux'/>
+    <data key='cic.selector.arch' value='x86'/>
+    <data key='cic.selector.ws' value='gtk'/>
+    <data key='cic.selector.nl' value='en'/>
+    <data key='user.sbx.JVM_LOC' value='/usr/java/default'/>
+    <data key='user.COPYJVM' value='true'/>
+    <data key='user.featurelist' value='com.ibm.is.commerce.ssfs.main'/>
+    <data key='user.featurelist,com.ibm.is.commerce.ssfs' value='com.ibm.is.commerce.ssfs.main'/>
+    <data key='user.sbx.DB_VENDOR' value='Oracle'/>
+    <data key='user.sbx.DB_USER' value='STERLING94'/>
+    <data key='user.sbx.DB_PASS' value='IMCRYPTED:MtvgKSoTCRj5/VegOn6DyQ=='/>
+    <data key='user.sbx.DB_DATA' value='XE'/>
+    <data key='user.sbx.DB_HOST' value='{{database_machine_name}}'/>
+    <data key='user.sbx.DB_PORT' value='1521'/>
+    <data key='user.sbx.DB_SCHEMA_OWNER' value='STERLING94'/>
+    <data key='user.sbx.DB_DRIVERS' value='/home/vagrant/server/roles/files/ojdbc6.jar'/>
+    <data key='user.sbx.ADDITIONAL_ANT_JAVA_TASK_ARGS' value='-XX:MaxPermSize=512m'/>
+    <data key='user.sbx.ADDITIONAL_ANT_COMPILER_TASK_ARGS' value='-J-Xms512m -J-Xmx2048m'/>
+  </profile>
+  <install modify='false'>
+    <!-- IBM Sterling Order Management Enterprise Edition 9.4 -->
+    <offering profile='IBM Sterling Order Management Enterprise Edition' id='com.ibm.is.commerce.ssfs' version='9.4.0' features='com.ibm.is.commerce.ssfs.main' installFixes='none'/>
+  </install>
+  <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
+  <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>
+  <preference name='com.ibm.cic.common.core.preferences.readTimeout' value='45'/>
+  <preference name='com.ibm.cic.common.core.preferences.downloadAutoRetryCount' value='0'/>
+  <preference name='offering.service.repositories.areUsed' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.ssl.nonsecureMode' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.http.disablePreemptiveAuthentication' value='false'/>
+  <preference name='http.ntlm.auth.kind' value='NTLM'/>
+  <preference name='http.ntlm.auth.enableIntegrated.win32' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.preserveDownloadedArtifacts' value='true'/>
+  <preference name='com.ibm.cic.common.core.preferences.keepFetchedFiles' value='false'/>
+  <preference name='PassportAdvantageIsEnabled' value='false'/>
+  <preference name='com.ibm.cic.common.core.preferences.searchForUpdates' value='false'/>
+  <preference name='com.ibm.cic.agent.ui.displayInternalVersion' value='false'/>
+  <preference name='com.ibm.cic.common.sharedUI.showErrorLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showWarningLog' value='true'/>
+  <preference name='com.ibm.cic.common.sharedUI.showNoteLog' value='true'/>
+</agent-input>

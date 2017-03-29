@@ -1,0 +1,9 @@
+---
+- name: Validate | Active MQ Installed
+  stat: path="{{activemq_home_path}}/bin/activemq"
+  register: activemq_dir_stat
+  changed_when: activemq_dir_stat.stat.exists == False
+    
+- set_fact: 
+    is_activemq_installed: true
+  when: activemq_dir_stat.stat.exists == True

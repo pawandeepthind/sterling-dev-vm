@@ -1,0 +1,13 @@
+#For Java 7
+versionmajor: 7
+versionminor: 79
+checkversion: 1.7
+#For Java 8
+#versionmajor: 8
+#versionminor: 77
+#checkversion: 1.8
+
+name: "jdk-{{ versionmajor }}u{{ versionminor }}-linux-x64"
+download_name: "{{ name }}.rpm"
+download_link: "http://host:port/{{ download_name }}"
+is_java_installed: false

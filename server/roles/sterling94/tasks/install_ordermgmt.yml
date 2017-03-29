@@ -1,0 +1,10 @@
+---
+#Section for Sterling Order Management Installation
+- set_fact:
+    cmd="{{ installation_manager_path }} input /home/vagrant/server/roles/{{sterling_folder}}/files/sterling_om.xml -log /opt/IBM/OMS/InstallationManager/eclipse/tools/Installation1.log -acceptLicense"
+
+- debug: msg={{ cmd }}
+  
+- name: "Install {{ product_name }} - Order Management"
+  command: "{{ cmd }}"
+  become_user: vagrant

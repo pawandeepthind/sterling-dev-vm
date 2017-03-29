@@ -1,0 +1,25 @@
+---
+- name: Is {{ download_name }} available {{ local_software_repo }}
+  stat: 
+    path="{{ local_software_repo }}/{{ download_name }}"
+  register: download_stat
+  when: not is_java_installed
+    
+- name: Download (get_url task) {{ download_name }}
+  get_url: 
+    url="{{ download_link }}"
+    dest="{{ local_software_repo }}/{{ download_name }}"
+  when: download_stat.stat.exists == False
+  ignore_errors: yes
+ 
+- name: Is {{ download_name }} available {{ local_software_repo }}
+  stat: 
+    path="{{ local_software_repo }}/{{ download_name }}"
+  register: download_stat
+  when: not is_java_installed
+    
+- name: Download (download task) {{ download_name }}
+  download: 
+    url="{{ download_link }}"
+    dest="{{ local_software_repo }}/{{ download_name }}"
+  when: download_stat.stat.exists == False

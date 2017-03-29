@@ -1,0 +1,51 @@
+---
+- name: Create install directory
+  file: 
+    path={{ install_location }}   
+    owner=vagrant 
+    group=vagrant 
+    state=directory 
+    mode=0755
+
+- name: Create install directory
+  file: 
+    path={{ sterling_home }}   
+    owner=vagrant 
+    group=vagrant 
+    state=directory 
+    mode=0755
+
+- name: Is {{ download_name }} available {{ local_software_repo }}
+  stat: 
+    path="{{ local_software_repo }}/{{ download_name }}"
+  register: download_stat
+    
+- name: Download (get_url task) {{ download_name }}
+  get_url: 
+    url="{{ download_link }}"
+    dest="{{ local_software_repo }}/{{ download_name }}"
+  when: download_stat.stat.exists == False
+  ignore_errors: yes
+  
+- name: Is {{ download_name }} available {{ local_software_repo }}
+  stat: 
+    path="{{ local_software_repo }}/{{ download_name }}"
+  register: download_stat
+    
+- name: Download (download task) {{ download_name }}
+  download: 
+    url="{{ download_link }}"
+    dest="{{ local_software_repo }}/{{ download_name }}"
+  when: download_stat.stat.exists == False
+
+- name: Copy the OM install config 
+  become: yes
+  template: src="sterling_om.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_om.xml" mode=0755
+
+- name: Copy the CC install config 
+  become: yes
+  template: src="sterling_cc.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_cc.xml" mode=0755
+
+- name: Copy the Store install config 
+  become: yes
+  template: src="sterling_store.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_store.xml" mode=0755

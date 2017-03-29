@@ -1,0 +1,5 @@
+name: oracle-xe-11.2.0-1.0.x86_64
+rpm_name: "{{ name }}.rpm"
+download_name: "{{ rpm_name }}.zip"
+download_link: "http://host:port/{{ download_name }}"
+is_oracle_installed: false

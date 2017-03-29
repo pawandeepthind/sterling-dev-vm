@@ -1,0 +1,37 @@
+---
+- name: Ensure required packages are installed
+  yum: pkg={{item}} state=latest
+  with_items:
+    - libaio
+    - bc
+    - flex
+    - unzip
+
+- name: Is {{ download_name }} available {{ local_software_repo }}
+  stat: 
+    path="{{ local_software_repo }}/{{ download_name }}"
+  register: download_stat
+  when: not is_oracle_installed
+    
+- name: Download (get_url) {{ download_name }}
+  get_url: 
+    url="{{ download_link }}"
+    dest="{{ local_software_repo }}/{{ download_name }}"
+  when: download_stat.stat.exists == False
+  ignore_errors: yes
+  
+- name: Is {{ download_name }} available {{ local_software_repo }}
+  stat: 
+    path="{{ local_software_repo }}/{{ download_name }}"
+  register: download_stat
+  when: not is_oracle_installed
+    
+- name: Download (download task) {{ download_name }}
+  download: 
+    url="{{ download_link }}"
+    dest="{{ local_software_repo }}/{{ download_name }}"
+  when: download_stat.stat.exists == False
+  
+- name: Unzip oracle rpm
+  command: /usr/bin/unzip -q {{ local_software_repo }}/{{ download_name }} -d /tmp creates=/tmp/Disk1
+  when: not is_oracle_installed
