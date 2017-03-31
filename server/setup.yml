@@ -23,6 +23,12 @@
     - weblogic
     - sterling94
 
+- hosts: ci_group
+  become: yes
+  
+  roles:
+    - java
+
 
 
 

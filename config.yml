@@ -37,12 +37,11 @@ groups:
     servers:
       - name: cidev
         box: bento/centos-7.2
-        memory: 512
+        memory: 2048
         ip: 10.0.20.40
         synced_folders: 
           - { guest: "./server", host: "/home/vagrant/server" }
         forwarded_ports:
-          - { guest: 8084, host: 8084 }
           - { guest: 8085, host: 8085 }
   - group_name: mule_group
     servers:
@@ -53,6 +52,8 @@ groups:
         synced_folders: 
           - { guest: "./server", host: "/home/vagrant/server" }
         forwarded_ports:
+          - { guest: 4000, host: 500 }
+          - { guest: 4500, host: 4500 }
           - { guest: 8585, host: 8585 }
           - { guest: 7777, host: 7777 }
           - { guest: 7779, host: 7779 }

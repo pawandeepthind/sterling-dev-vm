@@ -1,0 +1,11 @@
+---  
+- hosts: ci_group
+  become: yes
+  
+  roles:
+    - java8
+
+
+
+
+
