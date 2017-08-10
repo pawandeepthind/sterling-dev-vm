@@ -1,60 +1,42 @@
 ---
-mgmt_server: 
-  name: ctl
-  box: bento/centos-7.2
-  memory: 256
-  ip: 10.0.20.10
-  synced_folders: 
-    - { guest: "./server", host: "/home/vagrant/server" }
-groups:
-  - group_name: database_group
-    servers:
-      - name: database
-        box: bento/centos-7.2
-        memory: 512
-        ip: 10.0.20.20
-        synced_folders: 
+groups: # root for multi-vm configuration
+  - group_name: database_group # group name where we can define one or more servers
+    servers: #array of servers that needs to be configured in this group
+      - name: database # name of the server
+        type: slave # type of the server (slave or masster), note: there needs to be one machine of type master 
+                    # and others should be slave. And master machine should be in the end and that gorup should have only one machine
+        box: centos/7 # which vagrant box to use to setup base machine
+        memory: 512 # memory that should be given to the machine
+        ip: 10.0.20.20 # ip address that should be given to the machine
+        synced_folders: # list of folders to setup the sync
           - { guest: "./server", host: "/home/vagrant/server" }
-        forwarded_ports:
-          - { guest: 1521, host: 1521 }
+        forwarded_ports: # list of ports to be forwarded from the guest to host
+          - { guest: 1521, host: 1521 } # oracle default port
   - group_name: appserver_group
     servers:
-      - name: sterlingdev
-        box: bento/centos-7.2
+      - name: sterlingdev # server that will have weblogic, sterling 94 or 95, activemq installed
+        type: slave
+        box: centos/7
         memory: 4096
         ip: 10.0.20.30
         synced_folders: 
           - { guest: "./server", host: "/home/vagrant/server" }
         forwarded_ports:
           - { guest: 8080, host: 8080 }
-          - { guest: 8787, host: 8787 }
+          - { guest: 8787, host: 8787 } 
           - { guest: 8443, host: 8443 }
-          - { guest: 7001, host: 7001 }
+          - { guest: 7001, host: 7001 } # weblogic port
           - { guest: 8453, host: 8453 }
-          - { guest: 61616, host: 8616 }
-          - { guest: 8161, host: 8161 }
-  - group_name: ci_group
+          - { guest: 61616, host: 8616 } # activemq port
+          - { guest: 8161, host: 8161 } # activemq port
+  - group_name: management_server 
     servers:
-      - name: cidev
-        box: bento/centos-7.2
-        memory: 2048
-        ip: 10.0.20.40
+      - name: mgmt
+        type: master
+        box: centos/7
+        memory: 256
+        ip: 10.0.20.10
         synced_folders: 
           - { guest: "./server", host: "/home/vagrant/server" }
         forwarded_ports:
-          - { guest: 8085, host: 8085 }
-  - group_name: mule_group
-    servers:
-      - name: muledev
-        box: bento/centos-7.2
-        memory: 2048
-        ip: 10.0.20.50
-        synced_folders: 
-          - { guest: "./server", host: "/home/vagrant/server" }
-        forwarded_ports:
-          - { guest: 4000, host: 500 }
-          - { guest: 4500, host: 4500 }
-          - { guest: 8585, host: 8585 }
-          - { guest: 7777, host: 7777 }
-          - { guest: 7779, host: 7779 }
 

@@ -1,6 +1,4 @@
 ---  
-- include: ssh-addkey.yml
-
 - hosts: all
   strategy: free
   become: yes
@@ -21,15 +19,4 @@
   roles:
     - activemq
     - weblogic
-    - sterling94
-
-- hosts: ci_group
-  become: yes
-  
-  roles:
-    - java
-
-
-
-
-
+    - sterling95

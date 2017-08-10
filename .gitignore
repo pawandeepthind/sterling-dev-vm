@@ -57,4 +57,4 @@ doc/
 #project specific
 server/roles/files/*
 server/inventory.ini
-bootstrap-mgmt.sh
+temp/bootstrap*

@@ -1,6 +1,6 @@
 #Section for Sterling Installation manager
 - set_fact:
-    cmd="/home/vagrant/server/roles/files/{{sterling_folder}}/OM/InstallerImage_Linux_x86_64/tools/imcl install com.ibm.cic.agent -repositories {{ local_software_repo }}/sterling94/OM/InstallerImage_Linux_x86_64/repository.config -installationDirectory {{ install_location }}/InstallationManager/eclipse -acceptLicense -accessRights nonAdmin"
+    cmd="/home/vagrant/server/roles/files/{{sterling_folder}}/OM/InstallerImage_Linux_x86_64/tools/imcl install com.ibm.cic.agent -repositories {{ local_software_repo }}/{{sterling_folder}}/OM/InstallerImage_Linux_x86_64/repository.config -installationDirectory {{ install_location }}/InstallationManager/eclipse -acceptLicense -accessRights nonAdmin"
 
 - debug: msg={{ cmd }}
 
