@@ -2,5 +2,5 @@
 #file: all.yml, define variable common to all playbooks
 local_software_repo: /home/vagrant/server/roles/files
 scripts_home_path: /home/vagrant/server
-sterling_version: 95 # supports 94 or 95
+sterling_version: 94 # supports 94 or 95
 database_machine_name: database # this is the name of the database machine from config file

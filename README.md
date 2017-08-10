@@ -87,11 +87,16 @@ groups: # root for multi-vm configuration
 # Note: 
 
 1. Required roles are setup, you will need to put installer files in server/roles/files folder for these roles to pickup, in case you have you own roles avialble to install the software, put them in server/roles and use setup.yml to provision the software.
-2. **Change following vars depending on your preference**
-    ```
-    sterling_version: 95 # supports 94 or 95
-    database_machine_name: database # this is the name of the database machine from config file
-    ```
+2. Pickup what to install sterling 94 or sterling 95.
+  1. Change server/group_vars/all.yml
+      ```
+      sterling_version: 95 # supports 94 or 95
+      database_machine_name: database # this is the name of the database machine from config file
+      ```
+  2. Update server/setup.yml and change sterling94 or sterling95 at the roles to select on sterlingdev
+  3. Copy the correct installer in server/roles/files
+    1. Extract Sterling (94 or 95) installer.
+    2. Rename each component to OM, STORE and CC
 3. **Links, Credentials and Ports** (Note: ip can be different depending on the ip used in config.yml)
   * Active MQ: http://10.0.20.30:8161/ admin/admin
   * Oracle DB: 
