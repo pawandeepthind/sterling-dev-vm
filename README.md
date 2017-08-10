@@ -88,17 +88,16 @@ groups: # root for multi-vm configuration
 
 1. Required roles are setup, you will need to put installer files in server/roles/files folder for these roles to pickup, in case you have you own roles avialble to install the software, put them in server/roles and use setup.yml to provision the software.
 2. **Change following vars depending on your preference**
-
     ```
     sterling_version: 95 # supports 94 or 95
     database_machine_name: database # this is the name of the database machine from config file
     ```
-3. **Links, Credentials and Ports**
+3. **Links, Credentials and Ports** (Note: ip can be different depending on the ip used in config.yml)
   * Active MQ: http://10.0.20.30:8161/ admin/admin
   * Oracle DB: 
     * system@//10.0.20.20:1521/xe system/manager
     * sterling94@//10.0.20.20:1521/xe sterling94/sterling94
-  * Weblogic Console: http://localhost:7001/console weblogic/weblogic123
+  * Weblogic Console: http://10.0.20.30:7001/console weblogic/weblogic123
   * Sterling 
     * Console: http://10.0.20.30:7001/smcfs/console/login.jsp admin/password
     * SBC: http://10.0.20.30:7001/sbc/sbc/login.do admin/password
