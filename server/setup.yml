@@ -19,4 +19,4 @@
   roles:
     - activemq
     - weblogic
-    - sterling95
+    - sterling{{sterling_version}}

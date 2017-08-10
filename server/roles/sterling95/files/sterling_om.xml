@@ -4,11 +4,9 @@
     <variable name='sharedLocation' value='/home/vagrant/IBM/SDPShared'/>
   </variables>
   <server>
-    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/OM/foundation'/>
-    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/CC'/>
-    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/STORE'/>
+    <repository location='/home/vagrant/server/roles/files/sterling95/OM/foundation'/>
   </server>
-  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling{{sterling_version}}'>
+  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling95'>
     <data key='eclipseLocation' value='/opt/IBM/OMS/InstallationManager'/>
     <data key='user.import.profile' value='false'/>
     <data key='cic.selector.os' value='linux'/>
@@ -23,32 +21,16 @@
     <data key='user.sbx.DB_USER' value='STERLING95'/>
     <data key='user.sbx.DB_PASS' value='IMCRYPTED:z4tSbb/q1hLQ34NfAaLb3A=='/>
     <data key='user.sbx.DB_DATA' value='XE'/>
-    <data key='user.sbx.DB_HOST' value='{{database_machine_name}}'/>
+    <data key='user.sbx.DB_HOST' value='database'/>
     <data key='user.sbx.DB_PORT' value='1521'/>
     <data key='user.sbx.DB_SCHEMA_OWNER' value='STERLING95'/>
     <data key='user.sbx.DB_DRIVERS' value='/home/vagrant/server/roles/files/ojdbc6.jar'/>
     <data key='user.sbx.ADDITIONAL_ANT_JAVA_TASK_ARGS' value='-XX:MaxPermSize=512m'/>
     <data key='user.sbx.ADDITIONAL_ANT_COMPILER_TASK_ARGS' value='-J-Xms512m -J-Xmx2048m'/>
-    <data key='user.sbx.INSTALL_JAR' value='/home/vagrant/IBM/SDPShared/files/SMCFS_9.5.0.jar'/>
-    <data key='user.sbx.ACCEPT_LICENSE' value='YES'/>
-    <data key='user.sbx.JAVADOC_PRODUCT_LABEL' value='IBM Sterling Selling And Fulfillment Foundation 9.5'/>
-    <data key='user.sbx.STERLING_FOUNDATION_PRODUCT_LABEL' value='smcfs'/>
-    <data key='user.sbx.STERLING_FOUNDATION_PRODUCT_VERSION' value='9.5'/>
-    <data key='user.sbx.COPY_FCXML_TO_REPOSITORY' value='true'/>
-    <data key='user.sbx.multischema.version' value='9.5'/>
-    <data key='user.sbx.DB_CLEAN' value='false'/>
-    <data key='user.sbx.PRE_INSTALL_LOG_DIR' value='PreInstallSI.log'/>
-    <data key='user.sbx.OVERRIDE_LOAD_DEFAULTS_PK_GEN' value='true'/>
-    <data key='user.sbx.IC_PORT' value='9999'/>
-    <data key='user.sbx.OMS_INSTALLED' value='true'/>
-    <data key='user.sbx.LOAD_FACTORY_SETUP' value='true'/>
-    <data key='user.sbx.cluster' value=''/>
-    <data key='user.sbx.REINIT_DB' value='true'/>
-    <data key='user.sbx.multischema.enabled' value='false'/>
   </profile>
   <install modify='false'>
-    <!-- IBM Sterling Store 9.5.0 -->
-    <offering profile='IBM Sterling Order Management Enterprise Edition' id='com.ibm.is.commerce.wsc' version='9.5.0.20160510_0021' features='com.ibm.is.commerce.wsc.wsc' installFixes='none'/>
+    <!-- IBM Sterling Order Management Enterprise Edition 9.5 -->
+    <offering profile='IBM Sterling Order Management Enterprise Edition' id='com.ibm.is.commerce.ssfs' version='9.5.0' features='com.ibm.is.commerce.ssfs.main' installFixes='none'/>
   </install>
   <preference name='com.ibm.cic.common.core.preferences.eclipseCache' value='${sharedLocation}'/>
   <preference name='com.ibm.cic.common.core.preferences.connectTimeout' value='30'/>

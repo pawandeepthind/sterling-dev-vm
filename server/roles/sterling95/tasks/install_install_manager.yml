@@ -4,6 +4,16 @@
 
 - debug: msg={{ cmd }}
 
+- name: Validate | IBM Installation Manager Installed
+  stat: path="/opt/IBM/OMS/InstallationManager/eclipse/tools/imcl"
+  register: imcl_dir_stat
+  changed_when: imcl_dir_stat.stat.exists == False
+    
+- set_fact: 
+    is_installation_manager_installed: true
+  when: imcl_dir_stat.stat.exists == True
+
 - name: Install IBM installation manager
   command: "{{ cmd }}"
   become_user: vagrant
+  when: is_installation_manager_installed == False

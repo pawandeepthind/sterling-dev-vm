@@ -4,11 +4,11 @@
     <variable name='sharedLocation' value='/home/vagrant/IBM/SDPShared'/>
   </variables>
   <server>
-    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/OM/foundation'/>
-    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/CC'/>
-    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/STORE'/>
+    <repository location='/home/vagrant/server/roles/files/sterling95/OM/foundation'/>
+    <repository location='/home/vagrant/server/roles/files/sterling95/CC'/>
+    <repository location='/home/vagrant/server/roles/files/sterling95/STORE'/>
   </server>
-  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling{{sterling_version}}'>
+  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling95'>
     <data key='eclipseLocation' value='/opt/IBM/OMS/InstallationManager'/>
     <data key='user.import.profile' value='false'/>
     <data key='cic.selector.os' value='linux'/>
@@ -23,7 +23,7 @@
     <data key='user.sbx.DB_USER' value='STERLING95'/>
     <data key='user.sbx.DB_PASS' value='IMCRYPTED:z4tSbb/q1hLQ34NfAaLb3A=='/>
     <data key='user.sbx.DB_DATA' value='XE'/>
-    <data key='user.sbx.DB_HOST' value='{{database_machine_name}}'/>
+    <data key='user.sbx.DB_HOST' value='database'/>
     <data key='user.sbx.DB_PORT' value='1521'/>
     <data key='user.sbx.DB_SCHEMA_OWNER' value='STERLING95'/>
     <data key='user.sbx.DB_DRIVERS' value='/home/vagrant/server/roles/files/ojdbc6.jar'/>

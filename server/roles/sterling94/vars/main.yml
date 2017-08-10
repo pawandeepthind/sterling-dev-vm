@@ -1,5 +1,5 @@
 install_location: /opt/IBM/OMS
-sterling_home: "{{ install_location }}/Sterling94"
+sterling_home: "{{ install_location }}/Sterling{{sterling_version}}"
 installation_manager_path: "/opt/IBM/OMS/InstallationManager/eclipse/tools/imcl"
 is_sterling_installed: false
 appserver: weblogic
@@ -8,5 +8,5 @@ install_sterling_store: true
 name: ojdbc6
 download_name: "{{ name }}.jar"
 download_link: "http://host:port{{ download_name }}"
-product_name: "Sterling 94"
-sterling_folder: sterling94
+product_name: "Sterling {{sterling_version}}"
+sterling_folder: sterling{{sterling_version}}

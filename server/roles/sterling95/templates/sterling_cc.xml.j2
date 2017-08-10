@@ -4,11 +4,11 @@
     <variable name='sharedLocation' value='/home/vagrant/IBM/SDPShared'/>
   </variables>
   <server>
-    <repository location='/home/vagrant/server/roles/files/sterling/OM/foundation'/>
-    <repository location='/home/vagrant/server/roles/files/sterling/CC'/>
-    <repository location='/home/vagrant/server/roles/files/sterling/STORE'/>
+    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/OM/foundation'/>
+    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/CC'/>
+    <repository location='/home/vagrant/server/roles/files/{{sterling_folder}}/STORE'/>
   </server>
-  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling95'>
+  <profile id='IBM Sterling Order Management Enterprise Edition' installLocation='/opt/IBM/OMS/Sterling{{sterling_version}}'>
     <data key='eclipseLocation' value='/opt/IBM/OMS/InstallationManager'/>
     <data key='user.import.profile' value='false'/>
     <data key='cic.selector.os' value='linux'/>
