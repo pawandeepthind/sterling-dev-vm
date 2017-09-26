@@ -5,7 +5,7 @@ groups: # root for multi-vm configuration
       - name: database # name of the server
         type: slave # type of the server (slave or masster), note: there needs to be one machine of type master 
                     # and others should be slave. And master machine should be in the end and that gorup should have only one machine
-        box: centos/7 # which vagrant box to use to setup base machine
+        box: geerlingguy/centos7 # which vagrant box to use to setup base machine
         memory: 512 # memory that should be given to the machine
         ip: 10.0.20.20 # ip address that should be given to the machine
         synced_folders: # list of folders to setup the sync
@@ -16,7 +16,7 @@ groups: # root for multi-vm configuration
     servers:
       - name: sterlingdev # server that will have weblogic, sterling 94 or 95, activemq installed
         type: slave
-        box: centos/7
+        box: geerlingguy/centos7
         memory: 4096
         ip: 10.0.20.30
         synced_folders: 
@@ -33,7 +33,7 @@ groups: # root for multi-vm configuration
     servers:
       - name: mgmt
         type: master
-        box: centos/7
+        box: geerlingguy/centos7
         memory: 256
         ip: 10.0.20.10
         synced_folders: 
