@@ -31,3 +31,4 @@
     insertafter: EOF
     block: |
       servlet.authstyle=BASIC
+  when: sterling_version == '94'

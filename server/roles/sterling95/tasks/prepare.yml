@@ -40,12 +40,12 @@
 
 - name: Copy the OM install config 
   become: yes
-  template: src="sterling_om.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_om.xml" mode=0755
+  template: src="{{sterling_version}}/sterling_om.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_om.xml" mode=0755
 
 - name: Copy the CC install config 
   become: yes
-  template: src="sterling_cc.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_cc.xml" mode=0755
+  template: src="{{sterling_version}}/sterling_cc.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_cc.xml" mode=0755
 
 - name: Copy the Store install config 
   become: yes
-  template: src="sterling_store.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_store.xml" mode=0755
+  template: src="{{sterling_version}}/sterling_store.xml.j2" dest="{{scripts_home_path}}/roles/sterling{{sterling_version}}/files/sterling_store.xml" mode=0755

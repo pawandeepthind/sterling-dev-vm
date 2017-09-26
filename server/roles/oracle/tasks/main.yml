@@ -1,14 +1,14 @@
 ---
-- include: validate.yml
+- import_tasks: validate.yml
   when: not is_oracle_installed
   
 - debug: msg="Oracle Installed:- {{ is_oracle_installed }}"
 
-- include: prepare.yml
+- import_tasks: prepare.yml
   when: not is_oracle_installed
 
-- include: install.yml
+- import_tasks: install.yml
   when: not is_oracle_installed
   
-- include: postinstall.yml
+- import_tasks: postinstall.yml
   when: not is_oracle_installed

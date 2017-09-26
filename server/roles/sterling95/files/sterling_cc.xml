@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <agent-input>
   <variables>
-    <variable name='sharedLocation' value='/home/vagrant/IBM/SDPShared'/>
+    <variable name='sharedLocation' value='/opt/IBM/OMS/SDPShared'/>
   </variables>
   <server>
     <repository location='/home/vagrant/server/roles/files/sterling95/OM/foundation'/>

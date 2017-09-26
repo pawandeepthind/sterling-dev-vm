@@ -1,18 +1,18 @@
 ---
-- include: validate.yml
+- import_tasks: validate.yml
   when: not is_activemq_installed
   
 - debug: msg="ActiveMQ Installed:- {{ is_activemq_installed }}"
 
-- include: prepare.yml
+- import_tasks: prepare.yml
   when: not is_activemq_installed
 
-- include: install.yml
+- import_tasks: install.yml
   become: yes
   become_user: root
   when: not is_activemq_installed
   
-- include: postinstall.yml
+- import_tasks: postinstall.yml
   become: yes
   become_user: root
 
