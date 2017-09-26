@@ -2,10 +2,10 @@
 - name: Validate | Java Installed
   shell: java -version 2>&1 | grep version | awk '{print $3}' | sed 's/"//g'
   register: javaversion
-  changed_when: not "'{{ checkversion }}' in javaversion.stdout"
+  changed_when: not "'{{checkversion}}' in javaversion.stdout"
 
 - debug: msg={{ javaversion.stdout }}
     
 - set_fact: 
     is_java_installed: true
-  when: "'{{ checkversion }}' in javaversion.stdout"
+  when: "'{{checkversion}}' in javaversion.stdout"

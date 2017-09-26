@@ -1,0 +1,13 @@
+---
+- name: Run Install Service to Install Sample Configuration data
+  command: "{{ sterling_home_path }}/bin/InstallService.sh {{ sterling_home_path }}/referenceImplementation/ReferenceImpl.jar"
+  become_user: vagrant
+
+- name: Deploying Reference Implementation (Matrix RI)
+  command: "{{ sterling_home_path }}/bin/sci_ant.sh -f {{ sterling_home_path }}/bin/ycd_load_oms_ref_impl.xml -Drunmasterdata=y"
+  when: install_matrix_ri == True
+
+- name: Deploying Reference Implementation (Aurora RI)
+  command: "{{ sterling_home_path }}/bin/sci_ant.sh -f {{ sterling_home_path }}/bin/load_aurora_ref_impl.xml -Drunmasterdata=y"
+  when: install_aurora_ri == True
+

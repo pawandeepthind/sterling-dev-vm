@@ -18,5 +18,5 @@
 
 - name: Enable weblogic to be started at boot
   become: yes
-  service: name=weblogic enabled=yes state=stopped
+  service: name=weblogic enabled=no state=stopped
   ignore_errors: True

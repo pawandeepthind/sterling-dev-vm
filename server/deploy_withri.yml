@@ -1,0 +1,8 @@
+---  
+- hosts: appserver_group
+  become: yes
+  
+  roles:
+    - refrenceimpl
+    - deploy
+

@@ -1,6 +1,6 @@
 ---
 - name: Ensure required packages are installed
-  yum: pkg={{item}} state=latest
+  package: name={{item}} state=latest
   with_items:
     - libaio
     - bc

@@ -1,7 +1,7 @@
 ---
 #Section for Sterling Call Center Installation
 - set_fact:
-    cmd="{{ installation_manager_path }} input /home/vagrant/server/roles/{{sterling_folder}}/files/sterling_cc.xml -log /opt/IBM/OMS/InstallationManager/eclipse/tools/Installation1.log -acceptLicense"
+    cmd="{{ installation_manager_path }} input /home/vagrant/server/roles/sterling/files/sterling_cc.xml -log /opt/IBM/OMS/InstallationManager/eclipse/tools/Installation1.log -acceptLicense"
   when: install_sterling_callcenter == true
 
 - debug: msg={{ cmd }}

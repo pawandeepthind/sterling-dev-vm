@@ -1,0 +1,3 @@
+sterling_home_path: "/opt/IBM/OMS/Sterling{{sterling_version}}"
+install_matrix_ri: True
+install_aurora_ri: True
